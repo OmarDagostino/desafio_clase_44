@@ -75,7 +75,7 @@ if (!req.session.usuario) {
 // ruta para la vista de Home Page
 router.get('/', auth, (req,res)=>{
  
-  menuManagement (req,res,[0,1,1,1,1,1,1,1,0,1,1])
+  menuManagement (req,res,[0,1,1,1,1,1,1,1,0,1,1,1])
   let typeofuser=req.session.usuario.typeofuser
 
   res.setHeader('Content-Type','text/html');
@@ -85,7 +85,7 @@ router.get('/', auth, (req,res)=>{
 // ruta para la vista del usuario Premium
 router.get('/premium', auth, (req,res)=>{
   
-  menuManagement (req,res,[1,0,0,0,1,1,1,1,1,0,1])
+  menuManagement (req,res,[1,0,0,0,1,1,1,1,1,0,0,1])
   let typeofuser=req.session.usuario.typeofuser
   const name= req.session.usuario.name
   res.setHeader('Content-Type','text/html');
@@ -96,7 +96,7 @@ router.get('/premium', auth, (req,res)=>{
 router.get('/upload',auth, (req,res)=> {
   let uid = req.session.usuario._id
   let typeofuser = req.session.usuario.typeofuser
-  menuManagement (req,res,[1,0,0,0,1,1,1,1,0,1,0,1])
+  menuManagement (req,res,[1,0,0,0,1,1,1,1,0,1,0,0])
   res.status(200).render('upload',{typeofuser,uid, mostrarMenu0,mostrarMenu1,mostrarMenu2,mostrarMenu3,mostrarMenu4,mostrarMenu5,mostrarMenu6,mostrarMenu7,mostrarMenu8,mostrarMenu9,mostrarMenu10,mostrarMenu11} )
 })
 
@@ -112,7 +112,7 @@ router.get('/admin', auth, (req,res)=>{
 // ruta para la vista de visualizar productos para el administrador
 router.get('/visualizarProductos',auth,async (req,res)=> {
   
-  menuManagement (req,res,[0,0,0,0,0,0,0,1,1,0,0])
+  menuManagement (req,res,[0,0,0,0,0,0,0,1,1,0,0,0])
   let typeofuser=req.session.usuario.typeofuser;
   let product
   if (typeofuser=='premium') {
@@ -140,7 +140,7 @@ router.get('/visualizarProductos',auth,async (req,res)=> {
 // ruta para crear producto nuevo
 router.get('/crearProducto',auth,async (req,res)=> {
  
-  menuManagement (req,res,[0,0,0,0,0,0,0,1,1,0,1])
+  menuManagement (req,res,[0,0,0,0,0,0,0,1,1,0,1,0])
   let typeofuser=req.session.usuario.typeofuser;
   
   let error= false
@@ -159,7 +159,7 @@ router.get('/crearProducto',auth,async (req,res)=> {
 // ruta para modificar productos
 router.get('/modificarProductos',auth,async (req,res)=> {
   
-  menuManagement (req,res,[0,0,0,0,0,0,0,1,1,0,1])
+  menuManagement (req,res,[0,0,0,0,0,0,0,1,1,0,1,0])
   let typeofuser=req.session.usuario.typeofuser;
   let error= false
   let errorDetail = ''
@@ -194,7 +194,7 @@ router.get('/modificarProductos',auth,async (req,res)=> {
 // ruta para modificar un producto
 router.get('/modificarProducto',auth,async (req,res)=> {
  
-  menuManagement (req,res,[0,0,0,0,0,0,0,1,1,0,1])
+  menuManagement (req,res,[0,0,0,0,0,0,0,1,1,0,1,0])
   let typeofuser=req.session.usuario.typeofuser;
   
   let error= false
@@ -222,7 +222,7 @@ router.get('/modificarProducto',auth,async (req,res)=> {
 // ruta para eliminar un producto 
 router.get('/borrarProductos',auth,async (req,res)=> {
   
-  menuManagement (req,res,[0,0,0,0,0,0,0,1,1,0,1])
+  menuManagement (req,res,[0,0,0,0,0,0,0,1,1,0,1,0])
   let typeofuser=req.session.usuario.typeofuser;
   
   let error= false
@@ -260,7 +260,7 @@ router.get('/borrarProductos',auth,async (req,res)=> {
 // ruta para la vista del LOGIN
 router.get('/login', auth2, (req,res)=>{
  
-  menuManagement (req,res,[1,1,0,1,0,0,0,0,0,0,0])
+  menuManagement (req,res,[1,1,0,1,0,0,0,0,0,0,0,0])
   let typeofuser='' ;
   let error= false
   let errorDetail = ''
@@ -275,7 +275,7 @@ router.get('/login', auth2, (req,res)=>{
 // ruta para solicitar la recuperacion de la contraseña
 router.get('/forgot', auth2, (req,res,mostrarMensaje,mensaje)=>{
  
-  menuManagement (req,res,[1,1,0,1,0,0,0,0,0,0,0])
+  menuManagement (req,res,[1,1,0,1,0,0,0,0,0,0,0,0])
   let typeofuser='' ;
   let error= false
   let errorDetail = ''
@@ -300,7 +300,7 @@ res.status(200).render('recupera',{usuario})
 // ruta para la vista del LOGIN con github
 router.get('/loginGitHub', auth2, (req,res)=>{
   
-  menuManagement (req,res,[1,1,1,0,0,0,0,0,0,0,0])
+  menuManagement (req,res,[1,1,1,0,0,0,0,0,0,0,0,0])
   let typeofuser='' ;
   let error= false
   let errorDetail = ''
@@ -316,7 +316,7 @@ router.get('/loginGitHub', auth2, (req,res)=>{
 // ruta para la vista del registro de usuario
 router.get('/registro',auth2,  (req,res)=>{
   
-  menuManagement (req,res,[1,0,1,1,0,0,0,0,0,0,1])
+  menuManagement (req,res,[1,0,1,1,0,0,0,0,0,0,1,1])
   let typeofuser='';
   let error= false
   let errorDetail = ''
@@ -331,7 +331,7 @@ router.get('/registro',auth2,  (req,res)=>{
 // ruta para mostrar el registro del usuario que hizo login
 router.get('/current1',auth,  (req,res)=>{
  
-  menuManagement (req,res,[1,0,0,0,0,1,1,1,0,1,1])
+  menuManagement (req,res,[1,0,0,0,0,1,1,1,0,1,1,1])
 
   // DTO de datos del usuario
 
@@ -350,7 +350,7 @@ router.get('/current1',auth,  (req,res)=>{
 // ruta para el chat
 router.get('/chat',authUser, (req,res)=> {
   
-  menuManagement (req,res,[1,0,0,0,0,1,1,1,0,0,1])
+  menuManagement (req,res,[1,0,0,0,0,1,1,1,0,0,1,1])
   let email=req.user.email 
   res.setHeader('Content-Type','text/html');
   res.status(200).render('chat',{email,mostrarMenu0,mostrarMenu1,mostrarMenu2,mostrarMenu3,mostrarMenu4,mostrarMenu5,mostrarMenu6,mostrarMenu7,mostrarMenu8,mostrarMenu9,mostrarMenu10,mostrarMenu11});
@@ -376,7 +376,7 @@ router.get('/products', auth,  async (req,res) => {
       
     });
     res.setHeader('Content-Type', 'text/html');
-    menuManagement (req,res,[1,0,0,0,1,0,1,1,0,1,1])
+    menuManagement (req,res,[1,0,0,0,1,0,1,1,0,1,1,1])
     let typeofuser=req.session.usuario.typeofuser;
     res.status(200).render('products', { renderedProducts,name, cartId, typeofuser, mostrarMenu0,mostrarMenu1,mostrarMenu2,mostrarMenu3,mostrarMenu4,mostrarMenu5,mostrarMenu6,mostrarMenu7,mostrarMenu8,mostrarMenu9,mostrarMenu10,mostrarMenu11}); 
   } catch (error) {
@@ -444,7 +444,7 @@ router.get('/carts', auth, async (req,res)  => {
               cantidad: product.quantity,
             })),
           };
-          menuManagement (req,res,[1,0,0,0,1,1,0,1,0,1,1])
+          menuManagement (req,res,[1,0,0,0,1,1,0,1,0,1,1,1])
           let typeofuser=req.session.usuario.typeofuser;
 
           let mensaje= req.query.mensaje
