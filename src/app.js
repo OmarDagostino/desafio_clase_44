@@ -7,6 +7,7 @@ import apiProductRouter from './routes/router.product.js';
 import apiLoggerRouter from './routes/router.logger.js';
 import viewsRouter from './routes/router.views.js';
 import {router as sesionsRouter} from './routes/router.sessions.js';
+import {router as usersRouter} from './routes/router.users.js'
 import session from 'express-session';
 import ConnectMongo from 'connect-mongo';
 import inicializaPassport from './middlewares/passport-config.js';
@@ -42,6 +43,7 @@ app.use('/',viewsRouter);
 app.use('/api', apiLoggerRouter);
 app.use('/api', apiCartRouter);
 app.use('/api', apiProductRouter);
+app.use('/api', usersRouter)
 
 app.use (errorHandler)
 

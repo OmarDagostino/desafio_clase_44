@@ -58,7 +58,7 @@ router.get('/current',dtousuario, usersController.current)
 
 // actualizar tipo de usuario
 
-router.get('/premium/:email',authUser, usersController.premium)
+// router.get('/premium/:email',authUser, usersController.premium)
 
 // re-establecer contraseña
 
@@ -68,5 +68,5 @@ router.post('/recuperacion', usersController.recuperacion)
 
 // subir documentos con información de los usuarios
 
-router.post('/users/:uid/documents',upload.uploader.array('archivos1'),usersController.documents)
+// router.post('/users/:uid/documents',upload.uploader.array('archivos1'),usersController.documents)
   
